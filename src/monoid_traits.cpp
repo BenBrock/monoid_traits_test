@@ -17,6 +17,8 @@ struct plus_monoid {
     return a + b;
   }
 
+  // This one so happens to have some other methods and type defs, but these
+  // are unnecessary to be a "binary operator."
   static constexpr T identity() {
     return T(0);
   }
