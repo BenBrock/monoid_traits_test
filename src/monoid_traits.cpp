@@ -46,7 +46,7 @@ struct monoid_traits;
 // and a `type` typedef, this partial specialization will provide the
 // `monoid_traits` struct.
 template <typename T>
-struct monoid_traits<T, std::enable_if_t<has_identity_v_<T>>>
+struct monoid_traits<T, std::enable_if_t<has_identity_v<T>>>
 {
   using type = typename T::type;
 
@@ -100,7 +100,7 @@ using plus_nice = std::plus<void>;
 
 struct plus_ {
   template <typename T, typename U>
-  auto operator()(const T& a, const T& b) const {
+  auto operator()(const T& a, const U& b) const {
     return a + b;
   }
 
